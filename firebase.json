@@ -1,0 +1,29 @@
+{
+    "hosting": {
+        "public": "/",
+        "rewrites": [{
+                "source": "!/__/**",
+                "destination": "/index.html"
+            },
+            {
+                "source": "**/!(*.js|*.html|*.css|*.json|*.svg|*.png|*.jpg|*.jpeg)",
+                "destination": "/index.html"
+            }
+        ],
+        "headers": [{
+                "source": "/service-worker.js",
+                "headers": [{
+                    "key": "Cache-Control",
+                    "value": "no-cache"
+                }]
+            },
+            {
+                "source": "/images/logo/logo.svg",
+                "headers": [{
+                    "key": "Cache-Control",
+                    "value": "max-age=31536000"
+                }]
+            }
+        ]
+    }
+}
